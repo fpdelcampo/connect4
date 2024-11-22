@@ -64,14 +64,14 @@ function minimax(values: number[], isMaximizing: boolean,  depth: number, heuris
         if(e === 0) {
             return 0
         }
-        return Infinity * e
+        return 1000000 * e
     }
     if(depth === 0) {
         return heuristic(values)
     }
     const legal = legalMoves(values)
     if(isMaximizing) {
-        let best = -Infinity
+        let best = -1000000
         for(let i = 0; i < 7; i++) {
             if(legal[i] !== -1) {
                 values[legal[i]] = 1
@@ -83,7 +83,7 @@ function minimax(values: number[], isMaximizing: boolean,  depth: number, heuris
         return best
     }
     else {
-        let best = Infinity
+        let best = 1000000
         for(let i = 0; i < 7; i++) {
             if(legal[i] !== -1) {
                 values[legal[i]] = -1
@@ -100,7 +100,7 @@ export function findBestMove(values: number[], depth: number, heuristic: (values
     const move = countMoves(values)
     const isMaximizing = move % 2 === 0
     let bestMove = 0
-    let bestScore = isMaximizing ? -Infinity : Infinity
+    let bestScore = isMaximizing ? -1000000 : 1000000
     const legal = legalMoves(values)
     for(let i = 0; i < 7; i++) {
         if(legal[i] !== -1) {

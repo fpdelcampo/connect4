@@ -12,6 +12,7 @@ function App() {
 
 	function toggleButton() {
 		setToggle((toggle) => toggle === 'Yellow' ? 'Red' : "Yellow")
+		reset()
 	}
 
 	function handleMouseEnter(col: number) {
